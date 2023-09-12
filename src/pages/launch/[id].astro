@@ -1,0 +1,15 @@
+---
+export const prerender = false // server
+
+import Layout from '../../layouts/Layout.astro'
+import { getSpaceXLaunchById } from '../../services/spacex.service'
+
+const { id } = Astro.params
+let launch
+
+if (id) launch = await getSpaceXLaunchById({ id })
+---
+
+<Layout title="Launch">
+  {launch?.id}
+</Layout>

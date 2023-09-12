@@ -1,4 +1,5 @@
 ---
+import Counter from './Counter'
 import HeaderButton from './HeaderButton.astro'
 ---
 
@@ -11,6 +12,15 @@ import HeaderButton from './HeaderButton.astro'
       All the information about SpaceX launches
     </p>
   </div>
+
+  <!-- 
+    transition:persist: persist state 
+    (if reload you lose it) 
+    
+    client:visible: client render JS/TS for logic use
+    (if client:visible not exist, this will be a static Component) 
+  -->
+  <Counter transition:persist client:visible />
 
   <nav
     class="flex flex-col items-center justify-between w-full text-cemter md:flex-row"
